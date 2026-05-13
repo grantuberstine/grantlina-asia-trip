@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asia Trip · May 24 – June 7, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF6EE;
+    --card: #FFFBF2;
+    --ink: #1F1B16;
+    --ink-soft: #5A534B;
+    --ink-muted: #8A8378;
+    --line: #E5DDC9;
+    --jp: #C8616B;
+    --ph: #4A82A1;
+    --id: #4D8A78;
+    --tr: #8B8175;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    padding: 32px 16px 64px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 40px 0 56px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 7vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--jp);
+  }
+  .hero .route {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--ink-soft);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  .hero .route .dot {
+    color: var(--ink-muted);
+    margin: 0 10px;
+    font-size: 10px;
+    vertical-align: middle;
+  }
+  .hero .dates {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* Section heading */
+  .section-heading {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 56px 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .section-sub {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Flights table */
+  .flights {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .flight-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 140px;
+    gap: 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .flight-row:last-child { border-bottom: none; }
+  .flight-row .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .flight-row .num strong {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 14px;
+    display: block;
+  }
+  .flight-row .route {
+    font-size: 14px;
+  }
+  .flight-row .route .cities {
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .flight-row .route .note {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 2px;
+  }
+  .flight-row .airports {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-align: right;
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 540px) {
+    .flight-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .flight-row .airports { text-align: left; }
+  }
+
+  /* Day cards */
+  .day {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .day::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    bottom: -1px;
+    width: 4px;
+    border-radius: 8px 0 0 8px;
+  }
+  .day.jp::before { background: var(--jp); }
+  .day.ph::before { background: var(--ph); }
+  .day.id::before { background: var(--id); }
+  .day.tr::before { background: var(--tr); }
+
+  .day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .day-date {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+  .booked {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    background: #2D6A4F;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+  .ref {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #2D6A4F;
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+  .day.booked-day {
+    background: #FBFCF7;
+    border-left: 4px solid #2D6A4F;
+  }
+  .day.booked-day::before {
+    width: 0;
+  }
+  .day-place {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 4px 0 16px;
+    line-height: 1.15;
+  }
+
+  .day-section {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .day-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .day-section-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .day-section-items {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .day-section-items div {
+    padding: 1px 0;
+  }
+  .day-section-items .meta {
+    color: var(--ink-soft);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+  .footer em {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 36px;
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="hero">
+    <div class="eyebrow">Itinerary</div>
+    <h1>Tokyo, Cebu,<br/><em>Komodo &amp; Bali</em></h1>
+    <div class="route">
+      Japan<span class="dot">●</span>Philippines<span class="dot">●</span>Indonesia
+    </div>
+    <div class="dates">Sunday, May 24 – Sunday, June 7, 2026 · 15 days</div>
+  </header>
+
+  <div class="legend">
+    <span><i style="background:#C8616B"></i>Japan</span>
+    <span><i style="background:#4A82A1"></i>Philippines</span>
+    <span><i style="background:#4D8A78"></i>Indonesia</span>
+    <span><i style="background:#8B8175"></i>Travel</span>
+  </div>
+
+  <h2 class="section-heading">Confirmation numbers</h2>
+  <p class="section-sub">Save these · booking refs all in one place</p>
+
+  <div class="flights">
+    <div class="flight-row">
+      <div class="num"><strong>✓</strong>May 23–24</div>
+      <div class="route">
+        <div class="cities">United · DFW → Tokyo</div>
+        <div class="note">UA 1707 + UA 143 · Seats 35E, 35F</div>
+      </div>
+      <div class="airports">MMH1YL</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>✓</strong>May 28</div>
+      <div class="route">
+        <div class="cities">Trip.com · KIX → CEB</div>
+        <div class="note">9:15am – 12:55pm</div>
+      </div>
+      <div class="airports">1658112588285252</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>✓</strong>May 29</div>
+      <div class="route">
+        <div class="cities">Cebu · Oslob whale sharks + Kawasan canyoneering</div>
+        <div class="note">2am pickup · 2 adults · $324.28</div>
+      </div>
+      <div class="airports">GetYourGuide</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>✓</strong>May 30–31</div>
+      <div class="route">
+        <div class="cities">Cebu Pacific · CEB → MNL → DPS (overnight)</div>
+        <div class="note">5J 588 + 5J 279 multi-city · 11:40pm depart</div>
+      </div>
+      <div class="airports">Cebu Pacific</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>✓</strong>May 31</div>
+      <div class="route">
+        <div class="cities">AirAsia · DPS → LBJ</div>
+        <div class="note">QZ 646 · 11:25am–12:40pm</div>
+      </div>
+      <div class="airports">IGBSNN</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>✓</strong>Jun 1–3</div>
+      <div class="route">
+        <div class="cities">GetYourGuide · Labuan Bajo 3-Day Komodo</div>
+        <div class="note">BOAT 2 · Kings Cabin BLUE + Balcony · 8am Jun 1 start</div>
+      </div>
+      <div class="airports">GYGG45WAQ29H</div>
+    </div>
+  </div>
+
+  <h2 class="section-heading">Flights at a glance</h2>
+  <p class="section-sub">All flights to book, in order</p>
+
+  <div class="flights">
+    <div class="flight-row">
+      <div class="num"><strong>01</strong>May 23–24</div>
+      <div class="route">
+        <div class="cities">Dallas → Tokyo · BOOKED ✓</div>
+        <div class="note">UA 1707: DFW 8:45am → DEN 10:06am · UA 143: DEN 11:40am → NRT 2:30pm May 24</div>
+        <div class="ref">United · MMH1YL</div>
+      </div>
+      <div class="airports">DFW → DEN → NRT</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>02</strong>May 27 eve</div>
+      <div class="route">
+        <div class="cities">Kyoto → Osaka (Rinku Town)</div>
+        <div class="note">JR Special Rapid Kyoto → Osaka → Rinku Town, ~75 min total. Sleep cheap hotel near KIX.</div>
+      </div>
+      <div class="airports">Kyoto → Rinku</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>03</strong>May 28</div>
+      <div class="route">
+        <div class="cities">Osaka → Cebu · BOOKED ✓</div>
+        <div class="note">9:15am → 12:55pm. Wake 6:30am at Rinku Town, at KIX by 7:30am.</div>
+        <div class="ref">Trip.com · 1658112588285252</div>
+      </div>
+      <div class="airports">KIX → CEB</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>04</strong>May 30–31</div>
+      <div class="route">
+        <div class="cities">Cebu → Komodo (overnight) · BOOKED ✓</div>
+        <div class="note">5J 588 CEB→MNL 11:40pm → 5J 279 MNL→DPS 3:45am → QZ 646 DPS→LBJ 11:25am. Lands LBJ 12:40pm May 31.</div>
+        <div class="ref">Cebu Pacific (CEB→DPS multi-city) + AirAsia · IGBSNN</div>
+      </div>
+      <div class="airports">CEB → MNL → DPS → LBJ</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>05</strong>Jun 3</div>
+      <div class="route">
+        <div class="cities">Komodo → Bali</div>
+        <div class="note">Afternoon flight after boat returns midday</div>
+      </div>
+      <div class="airports">LBJ → DPS</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>06</strong>Jun 6</div>
+      <div class="route">
+        <div class="cities">Bali → Dallas</div>
+        <div class="note">Via Singapore, Tokyo, or Seoul. ~24hr total in transit.</div>
+      </div>
+      <div class="airports">DPS → DFW</div>
+    </div>
+  </div>
+
+  <h2 class="section-heading">Day by day</h2>
+  <p class="section-sub">Activities, transit, and bookings</p>
+
+  <!-- DAY 1 -->
+  <div class="day jp booked-day">
+    <div class="day-header">
+      <span class="day-date">Sunday, May 24</span>
+      <span class="booked">Booked ✓</span>
+    </div>
+    <div class="day-place">Tokyo · arrival</div>
+    <div class="day-section">
+      <div class="day-section-label">Flight</div>
+      <div class="day-section-items">
+        <div>UA 1707 + UA 143 — depart DFW Sat May 23 8:45am via Denver</div>
+        <div>Land NRT (Narita) Sun May 24 at 2:30pm</div>
+        <div class="meta">Seats 35E + 35F · Narita Express (NEX) to central Tokyo, ~1hr</div>
+        <div class="ref">United · MMH1YL</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Tonight</div>
+      <div class="day-section-items">
+        <div>Check into Tokyo hotel by 5pm</div>
+        <div>Dinner at Shodai</div>
+        <div>7-Eleven snack run — the konbini experience</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day jp">
+    <div class="day-header">
+      <span class="day-date">Monday, May 25</span>
+    </div>
+    <div class="day-place">Tokyo</div>
+    <div class="day-section">
+      <div class="day-section-label">Morning</div>
+      <div class="day-section-items">
+        <div>Tsukiji Outer Market — sushi breakfast, tamago skewers, knife shops</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Afternoon</div>
+      <div class="day-section-items">
+        <div>Harajuku &amp; Omotesando — Takeshita Street + Meiji Shrine</div>
+        <div class="meta">Or swap for Akihabara if anime/gaming is your thing</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Sunset</div>
+      <div class="day-section-items">
+        <div>Shibuya Sky 360° observation deck</div>
+        <div class="meta">Reserve a timed slot 1–2 weeks ahead</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Night</div>
+      <div class="day-section-items">
+        <div>Golden Gai bar hop in Shinjuku — tiny 6-seat izakaya bars</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day jp">
+    <div class="day-header">
+      <span class="day-date">Tuesday, May 26</span>
+    </div>
+    <div class="day-place">Tokyo → Kyoto</div>
+    <div class="day-section">
+      <div class="day-section-label">Transit</div>
+      <div class="day-section-items">
+        <div>Shinkansen Tokyo → Kyoto — early morning departure</div>
+        <div class="meta">~2hr 15min, arrive Kyoto before 10am</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Late morning</div>
+      <div class="day-section-items">
+        <div>teamLab Biovortex Kyoto — 7 min walk from Kyoto Station</div>
+        <div class="meta">Largest teamLab in Japan, opened Oct 2025. Book ahead.</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Afternoon</div>
+      <div class="day-section-items">
+        <div>Glanta — the ring shop</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Evening</div>
+      <div class="day-section-items">
+        <div>K36 Rooftop Bar — wood-fired pizza &amp; pagoda views</div>
+        <div class="meta">Hotel Seiryu Kyoto Kiyomizu rooftop</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day jp">
+    <div class="day-header">
+      <span class="day-date">Wednesday, May 27</span>
+    </div>
+    <div class="day-place">Kyoto · Arashiyama</div>
+    <div class="day-section">
+      <div class="day-section-label">Morning</div>
+      <div class="day-section-items">
+        <div>Hozugawa River boat tour — traditional wooden boat down the gorge</div>
+        <div class="meta">~2 hours, departs Kameoka, ends in Arashiyama</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Afternoon</div>
+      <div class="day-section-items">
+        <div>Iwatayama Monkey Park — macaques + city view from the hill</div>
+        <div>Arashiyama shopping street — wagashi, matcha soft serve, crafts</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Evening</div>
+      <div class="day-section-items">
+        <div>Back to central Kyoto — lantern-lit Pontocho &amp; Gion alleys</div>
+        <div>Late dinner, kaiseki or ramen until ~9:30pm</div>
+        <div class="meta">Leave Kyoto Station by 10:30pm latest to catch last train to Rinku</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Transit</div>
+      <div class="day-section-items">
+        <div>JR Special Rapid Kyoto → Osaka (28 min)</div>
+        <div>Kansai Airport Rapid Osaka → Rinku Town (45 min)</div>
+        <div class="meta">~11:45pm arrival</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Sleep</div>
+      <div class="day-section-items">
+        <div>Cheap hotel in Rinku Town (5 min from KIX)</div>
+        <div class="meta">First Cabin, Hotel R&amp;B, or Comfort Inn Kansai Airport</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day ph booked-day">
+    <div class="day-header">
+      <span class="day-date">Thursday, May 28</span>
+      <span class="booked">Booked ✓</span>
+    </div>
+    <div class="day-place">Osaka → Mactan, Cebu</div>
+    <div class="day-section">
+      <div class="day-section-label">Morning</div>
+      <div class="day-section-items">
+        <div>Wake 6:30am, walk or short train to KIX</div>
+        <div>At airport by 7:30am for 9:15am departure</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Flight</div>
+      <div class="day-section-items">
+        <div>KIX → CEB · 9:15am → 12:55pm · ~4hr 40min direct</div>
+        <div class="meta">Land Cebu early afternoon — earlier than first estimated</div>
+        <div class="ref">Trip.com · 1658112588285252</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Sleep</div>
+      <div class="day-section-items">
+        <div>Mactan beach resort, ~10 min from CEB airport</div>
+        <div class="meta">Crimson, Plantation Bay, Shangri-La, or Movenpick. In bed by 9pm — 2am wake-up tomorrow.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 6 -->
+  <div class="day ph booked-day">
+    <div class="day-header">
+      <span class="day-date">Friday, May 29</span>
+      <span class="booked">Booked ✓</span>
+    </div>
+    <div class="day-place">Whale sharks + canyoneering</div>
+    <div class="day-section">
+      <div class="day-section-label">Pickup</div>
+      <div class="day-section-items">
+        <div>2am from Mactan hotel</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Day</div>
+      <div class="day-section-items">
+        <div>Oslob whale shark snorkel</div>
+        <div>Kawasan Falls canyoneering</div>
+        <div class="meta">~16 hours total · 2 adults · $324.28 · back to Mactan evening</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 7 -->
+  <div class="day ph booked-day">
+    <div class="day-header">
+      <span class="day-date">Saturday, May 30</span>
+      <span class="booked">Booked ✓</span>
+    </div>
+    <div class="day-place">Cebu · recovery day</div>
+    <div class="day-section">
+      <div class="day-section-label">Day</div>
+      <div class="day-section-items">
+        <div>No alarm, sleep in after yesterday's marathon</div>
+        <div>Pool, spa, beach, food at the resort</div>
+        <div class="meta">Request late checkout (most Mactan resorts offer until 6pm)</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Evening</div>
+      <div class="day-section-items">
+        <div>Check out by 8pm, taxi to CEB airport</div>
+        <div>Light dinner at airport, gate by 10:30pm</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Flight (overnight)</div>
+      <div class="day-section-items">
+        <div>5J 588 · CEB → MNL · 11:40pm → 1:15am</div>
+        <div>Manila layover 1:15am – 3:45am · Terminal 3</div>
+        <div class="meta">Same airline both legs, bags through-checked</div>
+        <div class="ref">Cebu Pacific multi-city ticket</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 8 -->
+  <div class="day id booked-day">
+    <div class="day-header">
+      <span class="day-date">Sunday, May 31</span>
+      <span class="booked">Booked ✓</span>
+    </div>
+    <div class="day-place">Overnight transit → Labuan Bajo</div>
+    <div class="day-section">
+      <div class="day-section-label">Overnight flights</div>
+      <div class="day-section-items">
+        <div>5J 279 · MNL → DPS · 3:45am → 7:50am</div>
+        <div>Bali layover 7:50am – 11:25am (claim bags, immigration, re-check AirAsia)</div>
+        <div>QZ 646 · DPS → LBJ · 11:25am → 12:40pm</div>
+        <div class="ref">AirAsia · IGBSNN</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Afternoon</div>
+      <div class="day-section-items">
+        <div>Land LBJ 12:40pm · transfer to harbor-area hotel</div>
+        <div>Crash for a nap — you'll need it</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Evening</div>
+      <div class="day-section-items">
+        <div>Paradise Bar sunset or Atlantis viewpoint</div>
+        <div>Seafood dinner on the waterfront</div>
+        <div class="meta">Sleep early — 8am boat pickup tomorrow</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 9 -->
+  <div class="day id booked-day">
+    <div class="day-header">
+      <span class="day-date">Monday, June 1</span>
+      <span class="booked">Booked ✓</span>
+    </div>
+    <div class="day-place">Komodo · day 1</div>
+    <div class="day-section">
+      <div class="day-section-label">Morning</div>
+      <div class="day-section-items">
+        <div>8:00am operator pickup from LBJ hotel</div>
+        <div class="meta">BOAT 2, Kings Cabin BLUE + Balcony</div>
+        <div class="ref">GetYourGuide · GYGG45WAQ29H</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">On the boat</div>
+      <div class="day-section-items">
+        <div>Board liveaboard at harbor</div>
+        <div>Kelor + Manjarite reefs snorkel</div>
+        <div>Kalong Island bat sunset, sleep on boat</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 10 -->
+  <div class="day id booked-day">
+    <div class="day-header">
+      <span class="day-date">Tuesday, June 2</span>
+      <span class="booked">Booked ✓</span>
+    </div>
+    <div class="day-place">Komodo · day 2</div>
+    <div class="day-section">
+      <div class="day-section-label">On the boat</div>
+      <div class="day-section-items">
+        <div>Padar Island hike — iconic three-bay viewpoint</div>
+        <div>Pink Beach swim + Komodo Island dragons</div>
+        <div>Manta Point snorkel</div>
+        <div class="meta">Sleep on boat</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 11 -->
+  <div class="day id booked-day">
+    <div class="day-header">
+      <span class="day-date">Wednesday, June 3</span>
+      <span class="booked">Booked ✓</span>
+    </div>
+    <div class="day-place">Komodo → Bali · Seminyak</div>
+    <div class="day-section">
+      <div class="day-section-label">Transit</div>
+      <div class="day-section-items">
+        <div>Boat returns LBJ harbor, midday</div>
+        <div>LBJ → DPS, afternoon flight, ~1.5hr</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Sleep</div>
+      <div class="day-section-items">
+        <div>Seminyak hotel (move from Kuta)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 12 -->
+  <div class="day id">
+    <div class="day-header">
+      <span class="day-date">Thursday, June 4</span>
+    </div>
+    <div class="day-place">Bali · Uluwatu</div>
+    <div class="day-section">
+      <div class="day-section-label">Afternoon</div>
+      <div class="day-section-items">
+        <div>Drive Seminyak → Uluwatu, ~1 hr</div>
+        <div>Cliff-edge lunch (Single Fin or Sundara)</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Sunset</div>
+      <div class="day-section-items">
+        <div>Uluwatu Temple + Kecak fire dance, 6pm</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Night</div>
+      <div class="day-section-items">
+        <div>Seminyak beach club dinner</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 13 -->
+  <div class="day id">
+    <div class="day-header">
+      <span class="day-date">Friday, June 5</span>
+    </div>
+    <div class="day-place">Bali · Ubud or Nusa Penida</div>
+    <div class="day-section">
+      <div class="day-section-label">Pick one</div>
+      <div class="day-section-items">
+        <div>Ubud day — Tegallalang rice terraces + monkey forest</div>
+        <div>Or Nusa Penida day trip — Kelingking T-rex viewpoint</div>
+        <div class="meta">Pack for the long flight tomorrow</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 14 -->
+  <div class="day tr">
+    <div class="day-header">
+      <span class="day-date">Saturday, June 6</span>
+    </div>
+    <div class="day-place">Flying home</div>
+    <div class="day-section">
+      <div class="day-section-label">Flight</div>
+      <div class="day-section-items">
+        <div>DPS → DFW via Singapore, Tokyo, or Seoul</div>
+        <div class="meta">~22–28 hours total in transit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 15 -->
+  <div class="day tr">
+    <div class="day-header">
+      <span class="day-date">Sunday, June 7</span>
+    </div>
+    <div class="day-place">Home</div>
+    <div class="day-section">
+      <div class="day-section-label">Arrival</div>
+      <div class="day-section-items">
+        <div>Land Dallas (DFW)</div>
+        <div class="meta">Gain a day across the dateline · trip complete</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-heading">Where you sleep</h2>
+  <p class="section-sub">Hotel handoffs by night</p>
+
+  <div class="flights">
+    <div class="flight-row">
+      <div class="num"><strong>1–2</strong>May 24–25</div>
+      <div class="route">
+        <div class="cities">Tokyo</div>
+        <div class="note">2 nights · Shibuya or Shinjuku area</div>
+      </div>
+      <div class="airports">2 nights</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>3</strong>May 26</div>
+      <div class="route">
+        <div class="cities">Kyoto</div>
+        <div class="note">1 night · Gion or Kyoto Station area</div>
+      </div>
+      <div class="airports">1 night</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>4</strong>May 27</div>
+      <div class="route">
+        <div class="cities">Rinku Town (KIX)</div>
+        <div class="note">1 night · cheap, near airport · First Cabin, R&amp;B, Comfort Inn</div>
+      </div>
+      <div class="airports">1 night</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>5–7</strong>May 28–30</div>
+      <div class="route">
+        <div class="cities">Mactan, Cebu</div>
+        <div class="note">2 nights (May 28, 29) + late checkout May 30 · same resort whole time</div>
+      </div>
+      <div class="airports">2 nights + day</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>—</strong>May 30/31</div>
+      <div class="route">
+        <div class="cities">In transit · overnight on planes</div>
+        <div class="note">CEB → MNL → DPS → LBJ across the night</div>
+      </div>
+      <div class="airports">No hotel</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>8</strong>May 31</div>
+      <div class="route">
+        <div class="cities">Labuan Bajo</div>
+        <div class="note">1 night · harbor area · Bayview Gardens or La Cabana</div>
+      </div>
+      <div class="airports">1 night</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>9–10</strong>Jun 1–2</div>
+      <div class="route">
+        <div class="cities">Komodo liveaboard</div>
+        <div class="note">2 nights on the boat · Kings Cabin</div>
+      </div>
+      <div class="airports">2 nights</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>11–13</strong>Jun 3–5</div>
+      <div class="route">
+        <div class="cities">Bali · Seminyak</div>
+        <div class="note">3 nights · beach club area, central for Uluwatu &amp; Ubud day trips</div>
+      </div>
+      <div class="airports">3 nights</div>
+    </div>
+  </div>
+
+  <h2 class="section-heading">Still to book</h2>
+  <p class="section-sub">What's left to lock in</p>
+
+  <div class="flights">
+    <div class="flight-row">
+      <div class="num"><strong>1.</strong>2+ weeks</div>
+      <div class="route">
+        <div class="cities">teamLab Biovortex Kyoto</div>
+        <div class="note">May 26 timed-entry ticket — sells out</div>
+      </div>
+      <div class="airports">Pre-book</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>2.</strong>1–2 weeks</div>
+      <div class="route">
+        <div class="cities">Shibuya Sky observation deck</div>
+        <div class="note">May 25 sunset slot — book online</div>
+      </div>
+      <div class="airports">Pre-book</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>3.</strong>1 week</div>
+      <div class="route">
+        <div class="cities">K36 Rooftop Bar reservation</div>
+        <div class="note">May 26 evening · Hotel Seiryu Kyoto Kiyomizu</div>
+      </div>
+      <div class="airports">Reserve</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>4.</strong>Now</div>
+      <div class="route">
+        <div class="cities">Remaining flights: LBJ→DPS Jun 3, DPS→DFW Jun 6</div>
+        <div class="note">2 more bookings. DPS→DFW return is the long-haul priority — direct US routes from DPS are limited.</div>
+      </div>
+      <div class="airports">Now</div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>5.</strong>Now</div>
+      <div class="route">
+        <div class="cities">Hotels (6 stays)</div>
+        <div class="note">Tokyo · Kyoto · Rinku Town · Mactan · Labuan Bajo · Bali Seminyak</div>
+      </div>
+      <div class="airports">Now</div>
+    </div>
+  </div>
+
+  <h2 class="section-heading">Watch-outs</h2>
+  <p class="section-sub">Pre-flagged risks · plan around these</p>
+
+  <div class="flights">
+    <div class="flight-row">
+      <div class="num"><strong>⚠</strong>May 25–28</div>
+      <div class="route">
+        <div class="cities">Philippines eTravel registration</div>
+        <div class="note">Required for entry. Register at etravel.gov.ph within 72hr before May 28 arrival. Show QR code at boarding. Do this May 25 or 26.</div>
+      </div>
+      <div class="airports"></div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>⚠</strong>May 28–30</div>
+      <div class="route">
+        <div class="cities">Indonesia Arrival Card</div>
+        <div class="note">Required for entry to Indonesia. Register at allindonesia.imigrasi.go.id within 3 days before May 31 Bali arrival. Do this from Cebu May 28–30.</div>
+      </div>
+      <div class="airports"></div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>⚠</strong>May 28–29</div>
+      <div class="route">
+        <div class="cities">Brutal sleep transition</div>
+        <div class="note">Land Cebu ~2pm after 5hr int'l flight, in bed 9pm, up at 2am for tour. ~5 hours sleep. Be ready.</div>
+      </div>
+      <div class="airports"></div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>⚠</strong>May 30 → 31</div>
+      <div class="route">
+        <div class="cities">Overnight Manila layover</div>
+        <div class="note">2:30hr layover at MNL at 1:15–3:45am. Stay airside, find a quiet gate. Pack a neck pillow.</div>
+      </div>
+      <div class="airports"></div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>⚠</strong>May 27</div>
+      <div class="route">
+        <div class="cities">Packed Kyoto day</div>
+        <div class="note">River boat + monkeys + shops + lanterns + train to Osaka. Skip monkey park if tired.</div>
+      </div>
+      <div class="airports"></div>
+    </div>
+    <div class="flight-row">
+      <div class="num"><strong>⚠</strong>Jun 6</div>
+      <div class="route">
+        <div class="cities">Long haul home (~24hrs)</div>
+        <div class="note">DPS → DFW via SIN/NRT/ICN. Book this early — direct US routes from DPS are limited.</div>
+      </div>
+      <div class="airports"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <em>fin.</em><br/><br/>
+    Tokyo · Kyoto · Cebu · Bali · Komodo
+  </div>
+
+</div>
+
+</body>
+</html>
