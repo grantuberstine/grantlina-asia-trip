@@ -27,9 +27,52 @@
     background: var(--bg);
     color: var(--ink);
     line-height: 1.55;
-    padding: 32px 16px 64px;
+    padding: 0;
   }
-  .container { max-width: 760px; margin: 0 auto; }
+  .container { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+
+  /* Sticky nav */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 246, 238, 0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 16px;
+  }
+  .sticky-nav-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sticky-nav-inner::-webkit-scrollbar { display: none; }
+  .sticky-nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 4px 2px;
+    transition: color 0.2s;
+  }
+  .sticky-nav a:hover {
+    color: var(--jp);
+  }
+  @media (max-width: 540px) {
+    .sticky-nav-inner { gap: 14px; }
+    .sticky-nav a { font-size: 10.5px; letter-spacing: 0.12em; }
+  }
+  .section-heading {
+    scroll-margin-top: 60px;
+  }
 
   /* Hero */
   .hero {
@@ -312,6 +355,17 @@
 </head>
 <body>
 
+<nav class="sticky-nav">
+  <div class="sticky-nav-inner">
+    <a href="#bookings">Bookings</a>
+    <a href="#days">Days</a>
+    <a href="#customs">Customs</a>
+    <a href="#hotels">Hotels</a>
+    <a href="#todo">To Book</a>
+    <a href="#watch">Watch-outs</a>
+  </div>
+</nav>
+
 <div class="container">
 
   <header class="hero">
@@ -330,7 +384,7 @@
     <span><i style="background:#8B8175"></i>Travel</span>
   </div>
 
-  <h2 class="section-heading">All bookings · in order</h2>
+  <h2 class="section-heading" id="bookings">All bookings · in order</h2>
   <p class="section-sub">✈️ Flights &nbsp;·&nbsp; 🏨 Hotels &nbsp;·&nbsp; 🎟️ Tours</p>
 
   <div class="flights">
@@ -424,6 +478,171 @@
     </div>
   </div>
 
+  <h2 class="section-heading" id="customs">Customs &amp; entry</h2>
+  <p class="section-sub">Visa, paperwork, and rules by country</p>
+
+  <!-- JAPAN -->
+  <div class="day jp">
+    <div class="day-header">
+      <span class="day-date">May 24 – 28 · 4 days</span>
+    </div>
+    <div class="day-place">🇯🇵 Japan</div>
+    <div class="day-section">
+      <div class="day-section-label">Visa</div>
+      <div class="day-section-items">
+        <div>Visa-free up to 90 days for US passport holders — no application needed</div>
+        <div class="meta">Passport valid for duration of stay · 1 blank page minimum</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Entry form</div>
+      <div class="day-section-items">
+        <div>Visit Japan Web — pre-fill ED card + customs declaration online</div>
+        <div class="meta">vjw-lp.digital.go.jp · do 1–2 days before flight · generates QR codes to scan at immigration &amp; customs</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Cash declaration</div>
+      <div class="day-section-items">
+        <div>Declare if carrying over ¥1,000,000 (~$6,500 USD)</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Onward ticket</div>
+      <div class="day-section-items">
+        <div>Show your KIX → CEB flight (Trip.com booking) if asked</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Heads up</div>
+      <div class="day-section-items">
+        <div>No COVID rules · no vaccination needed · no testing</div>
+        <div>Cash is still king — bring/withdraw yen on arrival</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHILIPPINES -->
+  <div class="day ph">
+    <div class="day-header">
+      <span class="day-date">May 28 – 30 · 3 days</span>
+    </div>
+    <div class="day-place">🇵🇭 Philippines</div>
+    <div class="day-section">
+      <div class="day-section-label">Visa</div>
+      <div class="day-section-items">
+        <div>Visa-free up to 30 days for US passport holders</div>
+        <div class="meta">Passport valid 6+ months past arrival (so through Nov 28, 2026 minimum)</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Entry form</div>
+      <div class="day-section-items">
+        <div>eTravel registration — mandatory · etravel.gov.ph</div>
+        <div class="meta">Submit within 72hr before arrival (May 25–28) · free · get QR code to show at immigration</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Cash declaration</div>
+      <div class="day-section-items">
+        <div>Declare if over $10,000 USD or ₱50,000 PHP</div>
+        <div class="meta">PHP cash bring-in limit is ₱50,000 per person without prior approval</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Onward ticket</div>
+      <div class="day-section-items">
+        <div>Show your CEB → MNL → DPS Cebu Pacific booking if asked</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Heads up</div>
+      <div class="day-section-items">
+        <div>Proof of funds may be requested (rare) — have a card or screenshot of bank app ready</div>
+        <div>Drone use: requires CAAP permit — leave any drones home</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INDONESIA -->
+  <div class="day id">
+    <div class="day-header">
+      <span class="day-date">May 31 – Jun 7 · 7 days</span>
+    </div>
+    <div class="day-place">🇮🇩 Indonesia (Bali / Komodo)</div>
+    <div class="day-section">
+      <div class="day-section-label">Visa</div>
+      <div class="day-section-items">
+        <div>e-VOA required — IDR 500,000 (~$35 USD) per person, paid online</div>
+        <div class="meta">Apply at evisa.imigrasi.go.id at least 48hr before arrival · grants 30 days · Visa or Mastercard accepted</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Bali Tourist Levy</div>
+      <div class="day-section-items">
+        <div>IDR 150,000 (~$10 USD) per person — pay online via Love Bali</div>
+        <div class="meta">lovebali.baliprov.go.id · do before arrival, scan QR at airport</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Entry form</div>
+      <div class="day-section-items">
+        <div>AllIndonesia digital arrival card — mandatory</div>
+        <div class="meta">allindonesia.imigrasi.go.id · submit within 3 days before May 31 arrival · generates QR code</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Passport</div>
+      <div class="day-section-items">
+        <div>Valid 6+ months past arrival · 2 blank pages required</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Cash declaration</div>
+      <div class="day-section-items">
+        <div>Declare if over IDR 100,000,000 (~$6,500 USD)</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Heads up</div>
+      <div class="day-section-items">
+        <div>Overstay penalty: IDR 1,000,000 (~$65) per day · don't miss the Jun 7 flight</div>
+        <div>Komodo National Park has its own entry fee (paid via boat operator, included in your GetYourGuide tour)</div>
+        <div>E-cigarettes/vapes are restricted — declare or leave behind</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USA RE-ENTRY -->
+  <div class="day tr">
+    <div class="day-header">
+      <span class="day-date">Jun 7 · arrival home</span>
+    </div>
+    <div class="day-place">🇺🇸 USA re-entry</div>
+    <div class="day-section">
+      <div class="day-section-label">Customs declaration</div>
+      <div class="day-section-items">
+        <div>Fill out CBP form on flight, or use the Mobile Passport Control app to skip the kiosk line</div>
+        <div class="meta">Download "Mobile Passport Control" before leaving Bali — works at DFW</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Duty-free allowance</div>
+      <div class="day-section-items">
+        <div>$800 USD per person of personal goods · alcohol limit 1 liter · tobacco 200 cigs</div>
+        <div class="meta">Declare anything over · gifts count toward total</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Don't bring back</div>
+      <div class="day-section-items">
+        <div>Fresh fruit/vegetables · meat &amp; dairy products · live plants · soil/dirt</div>
+        <div>Wooden carvings: declare for inspection (no insect-infested wood)</div>
+        <div>Cash over $10,000 USD must be declared</div>
+      </div>
+    </div>
+  </div>
+
   <h2 class="section-heading">Flights at a glance</h2>
   <p class="section-sub">All flights to book, in order</p>
 
@@ -481,7 +700,7 @@
     </div>
   </div>
 
-  <h2 class="section-heading">Day by day</h2>
+  <h2 class="section-heading" id="days">Day by day</h2>
   <p class="section-sub">Activities, transit, and bookings</p>
 
   <!-- DAY 1 -->
@@ -969,7 +1188,7 @@
     </div>
   </div>
 
-  <h2 class="section-heading">Where you sleep</h2>
+  <h2 class="section-heading" id="hotels">Where you sleep</h2>
   <p class="section-sub">Hotel handoffs by night</p>
 
   <div class="flights">
@@ -1043,7 +1262,7 @@
     </div>
   </div>
 
-  <h2 class="section-heading">Book this week</h2>
+  <h2 class="section-heading" id="todo">Book this week</h2>
   <p class="section-sub">High priority · prices climb fast</p>
 
   <div class="flights">
@@ -1157,7 +1376,7 @@
     </div>
   </div>
 
-  <h2 class="section-heading">Watch-outs</h2>
+  <h2 class="section-heading" id="watch">Watch-outs</h2>
   <p class="section-sub">Pre-flagged risks · plan around these</p>
 
   <div class="flights">
