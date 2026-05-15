@@ -81,8 +81,14 @@
   /* Calendar */
   .calendar {
     margin-bottom: 48px;
-    margin-left: -100px;
-    margin-right: -100px;
+    margin-left: -160px;
+    margin-right: -160px;
+  }
+  @media (min-width: 1500px) {
+    .calendar {
+      margin-left: -240px;
+      margin-right: -240px;
+    }
   }
   @media (max-width: 1100px) {
     .calendar {
@@ -95,6 +101,9 @@
       margin-left: 0;
       margin-right: 0;
     }
+  }
+  .cal-day.empty {
+    display: none;
   }
   .cal-grid {
     display: grid;
