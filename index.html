@@ -215,36 +215,51 @@
     display: inline-block;
   }
 
-  @media (max-width: 540px) {
-    .cal-grid, .cal-headers {
-      gap: 3px;
+  @media (max-width: 640px) {
+    .cal-headers { display: none; }
+    .cal-day.empty { display: none; }
+    .cal-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
-    .cal-day, .cal-day.empty {
-      padding: 8px 5px 6px;
-      min-height: 110px;
-      border-radius: 4px;
+    .cal-day {
+      min-height: auto;
+      padding: 16px 18px;
+      border-radius: 8px;
+      border-top: 1px solid var(--line);
+      border-left: 5px solid var(--line);
+      gap: 10px;
+    }
+    .cal-day.jp { border-left-color: var(--jp); border-top: 1px solid var(--line); }
+    .cal-day.ph { border-left-color: var(--ph); border-top: 1px solid var(--line); }
+    .cal-day.id { border-left-color: var(--id); border-top: 1px solid var(--line); }
+    .cal-day.tr { border-left-color: var(--tr); border-top: 1px solid var(--line); }
+    .cal-day-head {
+      align-items: baseline;
     }
     .cal-date {
-      font-size: 17px;
+      font-size: 24px;
     }
     .cal-num {
-      font-size: 8px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
     }
     .cal-place {
-      font-size: 8px;
-      letter-spacing: 0.1em;
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      margin-top: 0;
+    }
+    .cal-items {
+      gap: 7px;
+      margin-top: 2px;
     }
     .cal-item {
-      font-size: 9.5px;
-      gap: 2px;
-      line-height: 1.2;
+      font-size: 14px;
+      gap: 8px;
+      line-height: 1.35;
     }
-    .cal-item.muted { font-size: 9px; }
-    .cal-item-icon { font-size: 9px; }
-    .cal-header {
-      font-size: 9px;
-      letter-spacing: 0.12em;
-    }
+    .cal-item.muted { font-size: 13px; }
+    .cal-item-icon { font-size: 14px; }
   }
 
   /* Hero */
