@@ -160,6 +160,20 @@
     padding: 24px 28px;
     margin-bottom: 14px;
     position: relative;
+    overflow: hidden;
+  }
+  .day-image {
+    width: calc(100% + 56px);
+    margin: -24px -28px 20px;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    background: #E5DDC9;
+  }
+  @media (max-width: 540px) {
+    .day-image {
+      height: 180px;
+    }
   }
   .day::before {
     content: '';
@@ -472,6 +486,7 @@
 
   <!-- DAY 1 -->
   <div class="day jp booked-day">
+    <img class="day-image" src="https://images.unsplash.com/photo-1741920852881-5284c70305bd?w=1400&q=80&fm=jpg&auto=format&fit=crop" alt="Tokyo Shibuya at night">
     <div class="day-header">
       <span class="day-date">Sunday, May 24</span>
       <span class="booked">Booked ✓</span>
@@ -534,6 +549,7 @@
 
   <!-- DAY 3 -->
   <div class="day jp booked-day">
+    <img class="day-image" src="https://images.unsplash.com/photo-1570692890937-f60db72ac6b4?w=1400&q=80&fm=jpg&auto=format&fit=crop" alt="Fushimi Inari torii gates, Kyoto">
     <div class="day-header">
       <span class="day-date">Tuesday, May 26</span>
       <span class="booked">Booked ✓</span>
@@ -578,6 +594,7 @@
 
   <!-- DAY 4 -->
   <div class="day jp booked-day">
+    <img class="day-image" src="https://images.unsplash.com/photo-1704026438453-fde2ceb923ad?w=1400&q=80&fm=jpg&auto=format&fit=crop" alt="Arashiyama bamboo grove, Kyoto">
     <div class="day-header">
       <span class="day-date">Wednesday, May 27</span>
       <span class="booked">Booked ✓</span>
@@ -664,6 +681,7 @@
 
   <!-- DAY 6 -->
   <div class="day ph booked-day">
+    <img class="day-image" src="https://images.unsplash.com/photo-1576647025587-2b77cd953cba?w=1400&q=80&fm=jpg&auto=format&fit=crop" alt="Whale shark snorkel, Oslob Philippines">
     <div class="day-header">
       <span class="day-date">Friday, May 29</span>
       <span class="booked">Booked ✓</span>
@@ -767,6 +785,7 @@
 
   <!-- DAY 9 -->
   <div class="day id booked-day">
+    <img class="day-image" src="https://images.unsplash.com/photo-1736523076173-dd6a33e76c37?w=1400&q=80&fm=jpg&auto=format&fit=crop" alt="Komodo National Park landscape">
     <div class="day-header">
       <span class="day-date">Monday, June 1</span>
       <span class="booked">Booked ✓</span>
@@ -792,6 +811,7 @@
 
   <!-- DAY 10 -->
   <div class="day id booked-day">
+    <img class="day-image" src="https://plus.unsplash.com/premium_photo-1661962370360-333d6f203a58?w=1400&q=80&fm=jpg&auto=format&fit=crop" alt="Komodo dragon">
     <div class="day-header">
       <span class="day-date">Tuesday, June 2</span>
       <span class="booked">Booked ✓</span>
@@ -841,6 +861,7 @@
 
   <!-- DAY 12 -->
   <div class="day id booked-day">
+    <img class="day-image" src="https://images.unsplash.com/photo-1588625224664-a561c1f5f619?w=1400&q=80&fm=jpg&auto=format&fit=crop" alt="Uluwatu Temple cliff sunset, Bali">
     <div class="day-header">
       <span class="day-date">Thursday, June 4</span>
       <span class="booked">Booked ✓</span>
@@ -877,6 +898,7 @@
 
   <!-- DAY 13 -->
   <div class="day id booked-day">
+    <img class="day-image" src="https://images.unsplash.com/photo-1559628233-eb1b1a45564b?w=1400&q=80&fm=jpg&auto=format&fit=crop" alt="Bali rice terraces, Tegallalang">
     <div class="day-header">
       <span class="day-date">Friday, June 5</span>
       <span class="booked">Booked ✓</span>
