@@ -81,57 +81,61 @@
   /* Calendar */
   .calendar {
     margin-bottom: 48px;
+    margin-left: -100px;
+    margin-right: -100px;
   }
-  .cal-month-label {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: var(--ink-muted);
-    letter-spacing: 0.04em;
-    margin: 20px 0 10px;
+  @media (max-width: 1100px) {
+    .calendar {
+      margin-left: -40px;
+      margin-right: -40px;
+    }
   }
-  .cal-month-label:first-of-type {
-    margin-top: 0;
+  @media (max-width: 840px) {
+    .calendar {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
   .cal-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
+    gap: 8px;
   }
   .cal-headers {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
-    margin-bottom: 6px;
+    gap: 8px;
+    margin-bottom: 8px;
   }
   .cal-header {
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     color: var(--ink-muted);
     text-align: center;
     font-weight: 600;
+    padding-bottom: 4px;
   }
   .cal-day {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: 10px 8px 8px;
-    min-height: 110px;
+    border-radius: 8px;
+    padding: 14px 12px 12px;
+    min-height: 175px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     position: relative;
     overflow: hidden;
   }
-  .cal-day.jp { border-top: 3px solid var(--jp); }
-  .cal-day.ph { border-top: 3px solid var(--ph); }
-  .cal-day.id { border-top: 3px solid var(--id); }
-  .cal-day.tr { border-top: 3px solid var(--tr); }
+  .cal-day.jp { border-top: 4px solid var(--jp); }
+  .cal-day.ph { border-top: 4px solid var(--ph); }
+  .cal-day.id { border-top: 4px solid var(--id); }
+  .cal-day.tr { border-top: 4px solid var(--tr); }
   .cal-day.empty {
     background: transparent;
     border: 1px dashed var(--line);
-    min-height: 110px;
+    min-height: 175px;
   }
   .cal-day-head {
     display: flex;
@@ -141,41 +145,52 @@
   }
   .cal-date {
     font-family: 'Fraunces', serif;
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 500;
     color: var(--ink);
+    line-height: 1;
   }
   .cal-num {
     font-size: 9px;
     color: var(--ink-muted);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     font-weight: 600;
+  }
+  .cal-place {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--ink-muted);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: -2px;
   }
   .cal-items {
     display: flex;
     flex-direction: column;
-    gap: 3px;
-    margin-top: 2px;
+    gap: 6px;
+    margin-top: 4px;
   }
   .cal-item {
     display: flex;
-    align-items: baseline;
-    gap: 4px;
-    font-size: 11px;
-    color: var(--ink-soft);
-    line-height: 1.25;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.3;
   }
   .cal-item-icon {
     flex-shrink: 0;
-    font-size: 10px;
+    font-size: 12px;
+    line-height: 1.4;
   }
   .cal-item-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+  }
+  .cal-item.muted {
+    color: var(--ink-soft);
+    font-size: 11.5px;
   }
   .cal-legend {
     display: flex;
@@ -184,7 +199,7 @@
     justify-content: center;
     font-size: 11px;
     color: var(--ink-muted);
-    margin-top: 16px;
+    margin-top: 20px;
     padding-top: 16px;
     border-top: 1px solid var(--line);
   }
@@ -205,20 +220,27 @@
       gap: 3px;
     }
     .cal-day, .cal-day.empty {
-      padding: 6px 4px 5px;
-      min-height: 78px;
+      padding: 8px 5px 6px;
+      min-height: 110px;
       border-radius: 4px;
     }
     .cal-date {
-      font-size: 14px;
+      font-size: 17px;
     }
     .cal-num {
       font-size: 8px;
     }
-    .cal-item {
-      font-size: 9px;
-      gap: 2px;
+    .cal-place {
+      font-size: 8px;
+      letter-spacing: 0.1em;
     }
+    .cal-item {
+      font-size: 9.5px;
+      gap: 2px;
+      line-height: 1.2;
+    }
+    .cal-item.muted { font-size: 9px; }
+    .cal-item-icon { font-size: 9px; }
     .cal-header {
       font-size: 9px;
       letter-spacing: 0.12em;
@@ -799,7 +821,6 @@
   <p class="section-sub">15 days at a glance · ✈️ Flights · 🏨 Hotels · 🎟️ Tours</p>
 
   <div class="calendar">
-    <div class="cal-month-label">May 2026</div>
     <div class="cal-headers">
       <div class="cal-header">Sun</div>
       <div class="cal-header">Mon</div>
@@ -810,133 +831,136 @@
       <div class="cal-header">Sat</div>
     </div>
     <div class="cal-grid">
-      <!-- Week 1: May 24-30 -->
+      <!-- Row 1: May 24-30 -->
       <div class="cal-day jp">
-        <div class="cal-day-head"><span class="cal-date">24</span><span class="cal-num">D1</span></div>
+        <div class="cal-day-head"><span class="cal-date">May 24</span><span class="cal-num">D1</span></div>
+        <div class="cal-place">Tokyo · arrival</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">Land Tokyo</span></div>
+          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">DFW → NRT · land 2:30pm</span></div>
           <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">Grand Hyatt Tokyo</span></div>
         </div>
       </div>
       <div class="cal-day jp">
         <div class="cal-day-head"><span class="cal-date">25</span><span class="cal-num">D2</span></div>
+        <div class="cal-place">Tokyo</div>
         <div class="cal-items">
           <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">Grand Hyatt Tokyo</span></div>
+          <div class="cal-item muted"><span class="cal-item-icon">🌇</span><span class="cal-item-text">Shibuya Sky sunset</span></div>
         </div>
       </div>
       <div class="cal-day jp">
         <div class="cal-day-head"><span class="cal-date">26</span><span class="cal-num">D3</span></div>
+        <div class="cal-place">Tokyo → Kyoto</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">🚄</span><span class="cal-item-text">Tokyo → Kyoto</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🚄</span><span class="cal-item-text">Shinkansen to Kyoto</span></div>
           <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">Hyatt Regency Kyoto</span></div>
         </div>
       </div>
       <div class="cal-day jp">
         <div class="cal-day-head"><span class="cal-date">27</span><span class="cal-num">D4</span></div>
+        <div class="cal-place">Kyoto · Arashiyama</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">🚄</span><span class="cal-item-text">Kyoto → Rinku</span></div>
-          <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">HATAGO INN KIX</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🚄</span><span class="cal-item-text">Kyoto → Rinku Town</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">HATAGO INN (KIX)</span></div>
         </div>
       </div>
       <div class="cal-day ph">
         <div class="cal-day-head"><span class="cal-date">28</span><span class="cal-num">D5</span></div>
+        <div class="cal-place">Osaka → Moalboal</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">KIX → Cebu</span></div>
-          <div class="cal-item"><span class="cal-item-icon">🚗</span><span class="cal-item-text">CEB → Moalboal</span></div>
+          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">KIX → CEB · 9:15am</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🚗</span><span class="cal-item-text">Car to Moalboal (~3hr)</span></div>
           <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">Moalboal hotel</span></div>
         </div>
       </div>
       <div class="cal-day ph">
         <div class="cal-day-head"><span class="cal-date">29</span><span class="cal-num">D6</span></div>
+        <div class="cal-place">Whale sharks day</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">🎟️</span><span class="cal-item-text">Whale sharks + canyon</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🎟️</span><span class="cal-item-text">Oslob + Kawasan canyon</span></div>
           <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">Moalboal hotel</span></div>
         </div>
       </div>
       <div class="cal-day ph">
         <div class="cal-day-head"><span class="cal-date">30</span><span class="cal-num">D7</span></div>
+        <div class="cal-place">Moalboal → CEB</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">🐠</span><span class="cal-item-text">Sardine run</span></div>
-          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">CEB → MNL (11:40pm)</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🐠</span><span class="cal-item-text">Sardine run snorkel</span></div>
+          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">CEB → MNL · 11:40pm</span></div>
         </div>
       </div>
-      <!-- Week 2: May 31 (only Sunday in May) -->
+      <!-- Row 2: May 31 - Jun 6 (continuous, no month break) -->
       <div class="cal-day id">
         <div class="cal-day-head"><span class="cal-date">31</span><span class="cal-num">D8</span></div>
+        <div class="cal-place">Transit → Labuan Bajo</div>
         <div class="cal-items">
           <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">MNL → DPS → LBJ</span></div>
-          <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">Labuan Bajo</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">Labuan Bajo hotel</span></div>
         </div>
       </div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-    </div>
-
-    <div class="cal-month-label">June 2026</div>
-    <div class="cal-headers">
-      <div class="cal-header">Sun</div>
-      <div class="cal-header">Mon</div>
-      <div class="cal-header">Tue</div>
-      <div class="cal-header">Wed</div>
-      <div class="cal-header">Thu</div>
-      <div class="cal-header">Fri</div>
-      <div class="cal-header">Sat</div>
-    </div>
-    <div class="cal-grid">
-      <!-- June 2026 starts Mon Jun 1 -->
-      <div class="cal-day empty"></div>
       <div class="cal-day id">
-        <div class="cal-day-head"><span class="cal-date">1</span><span class="cal-num">D9</span></div>
+        <div class="cal-day-head"><span class="cal-date">Jun 1</span><span class="cal-num">D9</span></div>
+        <div class="cal-place">Komodo · day 1</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">🎟️</span><span class="cal-item-text">Komodo boat day 1</span></div>
-          <div class="cal-item"><span class="cal-item-icon">⛵</span><span class="cal-item-text">Sleep on boat</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🎟️</span><span class="cal-item-text">Liveaboard boards 8am</span></div>
+          <div class="cal-item"><span class="cal-item-icon">⛵</span><span class="cal-item-text">Sleep on boat · Kings Cabin</span></div>
         </div>
       </div>
       <div class="cal-day id">
         <div class="cal-day-head"><span class="cal-date">2</span><span class="cal-num">D10</span></div>
+        <div class="cal-place">Komodo · day 2</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">🦎</span><span class="cal-item-text">Komodo dragons + Padar</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🦎</span><span class="cal-item-text">Padar + Pink Beach + dragons</span></div>
           <div class="cal-item"><span class="cal-item-icon">⛵</span><span class="cal-item-text">Sleep on boat</span></div>
         </div>
       </div>
       <div class="cal-day id">
         <div class="cal-day-head"><span class="cal-date">3</span><span class="cal-num">D11</span></div>
+        <div class="cal-place">Komodo → Bali</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">LBJ → DPS</span></div>
+          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">LBJ → DPS · afternoon</span></div>
           <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">The Laguna Nusa Dua</span></div>
         </div>
       </div>
       <div class="cal-day id">
         <div class="cal-day-head"><span class="cal-date">4</span><span class="cal-num">D12</span></div>
+        <div class="cal-place">Bali · Uluwatu</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">🌅</span><span class="cal-item-text">Uluwatu sunset</span></div>
-          <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">The Laguna</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🌅</span><span class="cal-item-text">Uluwatu Temple + Kecak</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">The Laguna Nusa Dua</span></div>
         </div>
       </div>
       <div class="cal-day id">
         <div class="cal-day-head"><span class="cal-date">5</span><span class="cal-num">D13</span></div>
+        <div class="cal-place">Bali · Ubud or Penida</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">🌾</span><span class="cal-item-text">Ubud or Nusa Penida</span></div>
-          <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">The Laguna</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🌾</span><span class="cal-item-text">Day trip — pick one</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">The Laguna Nusa Dua</span></div>
         </div>
       </div>
       <div class="cal-day tr">
         <div class="cal-day-head"><span class="cal-date">6</span><span class="cal-num">D14</span></div>
+        <div class="cal-place">Bali → home</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">DPS → ICN (1:10am Jun 7)</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🏨</span><span class="cal-item-text">Laguna · checkout noon</span></div>
+          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">KE 434 · 1:10am Jun 7</span></div>
         </div>
       </div>
+      <!-- Row 3: Jun 7 (just Sunday) -->
       <div class="cal-day tr">
         <div class="cal-day-head"><span class="cal-date">7</span><span class="cal-num">D15</span></div>
+        <div class="cal-place">Home</div>
         <div class="cal-items">
-          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">Land DFW 4:45pm</span></div>
-          <div class="cal-item"><span class="cal-item-icon">🏠</span><span class="cal-item-text">Home</span></div>
+          <div class="cal-item"><span class="cal-item-icon">✈️</span><span class="cal-item-text">Land DFW · 4:45pm</span></div>
+          <div class="cal-item"><span class="cal-item-icon">🏠</span><span class="cal-item-text">Trip complete</span></div>
         </div>
       </div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
     </div>
 
     <div class="cal-legend">
