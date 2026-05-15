@@ -90,6 +90,82 @@
     scroll-margin-top: 60px;
   }
 
+  /* Bookings with clickable source screenshots */
+  .flight-row[data-img] {
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .flight-row[data-img]:hover {
+    background: rgba(0,0,0,0.02);
+  }
+  .flight-row[data-img] .num strong::after {
+    content: ' 📎';
+    font-size: 11px;
+    opacity: 0.5;
+  }
+
+  /* Lightbox modal */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(31, 27, 22, 0.92);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: zoom-out;
+  }
+  .lightbox.open {
+    display: flex;
+  }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    background: rgba(0,0,0,0.5);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 6px 12px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.4);
+  }
+  .lightbox-missing {
+    color: #FAF6EE;
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    text-align: center;
+    max-width: 400px;
+    line-height: 1.6;
+  }
+  .lightbox-missing code {
+    background: rgba(255,255,255,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+  }
+
   /* Calendar */
   .calendar {
     margin-bottom: 48px;
@@ -555,6 +631,8 @@
     <a href="#calendar">Calendar</a>
     <a href="#days">Days</a>
     <a href="#customs">Customs</a>
+    <a href="#etiquette">Etiquette</a>
+    <a href="#prep">Prep</a>
     <a href="#hotels">Hotels</a>
     <a href="#todo">To Book</a>
     <a href="#watch">Watch-outs</a>
@@ -582,8 +660,10 @@
   <h2 class="section-heading" id="bookings">All bookings · in order</h2>
   <p class="section-sub">✈️ Flights &nbsp;·&nbsp; 🏨 Hotels &nbsp;·&nbsp; 🎟️ Tours</p>
 
+  <p class="section-sub" style="margin-top: -20px; margin-bottom: 20px;">📎 Click any row to view the original confirmation screenshot</p>
+
   <div class="flights">
-    <div class="flight-row">
+    <div class="flight-row" data-img="united-dfw-nrt.png" data-caption="United DFW → Tokyo · MMH1YL">
       <div class="num"><strong>✈️</strong>May 23–24</div>
       <div class="route">
         <div class="cities">United · DFW → Tokyo</div>
@@ -591,7 +671,7 @@
       </div>
       <div class="airports">MMH1YL</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="grand-hyatt-tokyo.png" data-caption="Grand Hyatt Tokyo · 40023B17675577">
       <div class="num"><strong>🏨</strong>May 24–25</div>
       <div class="route">
         <div class="cities">Grand Hyatt Tokyo · 2 nights · Roppongi</div>
@@ -599,7 +679,7 @@
       </div>
       <div class="airports">40023B17675577</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="hyatt-regency-kyoto.png" data-caption="Hyatt Regency Kyoto · 40023B17670568">
       <div class="num"><strong>🏨</strong>May 26</div>
       <div class="route">
         <div class="cities">Hyatt Regency Kyoto · 1 night</div>
@@ -607,7 +687,7 @@
       </div>
       <div class="airports">40023B17670568</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="hatago-inn.png" data-caption="HATAGO INN Kansai Airport · 73449677354611">
       <div class="num"><strong>🏨</strong>May 27</div>
       <div class="route">
         <div class="cities">HATAGO INN Kansai Airport · 1 night · Rinku Town</div>
@@ -615,7 +695,7 @@
       </div>
       <div class="airports">73449677354611</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="trip-kix-ceb.png" data-caption="Trip.com KIX → CEB · 1658112588285252">
       <div class="num"><strong>✈️</strong>May 28</div>
       <div class="route">
         <div class="cities">Trip.com · KIX → CEB</div>
@@ -623,7 +703,7 @@
       </div>
       <div class="airports">1658112588285252</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="gyg-whale-sharks.png" data-caption="GetYourGuide · Oslob whale sharks + Kawasan">
       <div class="num"><strong>🎟️</strong>May 29</div>
       <div class="route">
         <div class="cities">Oslob whale sharks + Kawasan canyoneering</div>
@@ -631,7 +711,7 @@
       </div>
       <div class="airports">GetYourGuide</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="cebu-pacific.png" data-caption="Cebu Pacific · CEB → MNL → DPS">
       <div class="num"><strong>✈️</strong>May 30–31</div>
       <div class="route">
         <div class="cities">Cebu Pacific · CEB → MNL → DPS (overnight)</div>
@@ -639,7 +719,7 @@
       </div>
       <div class="airports">Cebu Pacific</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="airasia-dps-lbj.png" data-caption="AirAsia DPS → LBJ · IGBSNN">
       <div class="num"><strong>✈️</strong>May 31</div>
       <div class="route">
         <div class="cities">AirAsia · DPS → LBJ</div>
@@ -647,7 +727,7 @@
       </div>
       <div class="airports">IGBSNN</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="gyg-komodo.png" data-caption="GetYourGuide Komodo Liveaboard · GYGG45WAQ29H">
       <div class="num"><strong>🎟️</strong>Jun 1–3</div>
       <div class="route">
         <div class="cities">Labuan Bajo 3-Day Komodo liveaboard</div>
@@ -655,7 +735,7 @@
       </div>
       <div class="airports">GYGG45WAQ29H</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="laguna-nusa-dua.png" data-caption="The Laguna Nusa Dua · 95252916">
       <div class="num"><strong>🏨</strong>Jun 3–5</div>
       <div class="route">
         <div class="cities">The Laguna, Luxury Collection · Nusa Dua, Bali · 3 nights</div>
@@ -663,7 +743,7 @@
       </div>
       <div class="airports">95252916</div>
     </div>
-    <div class="flight-row">
+    <div class="flight-row" data-img="korean-air.png" data-caption="Korean Air DPS → ICN → DFW · CKR3QR">
       <div class="num"><strong>✈️</strong>Jun 6–7</div>
       <div class="route">
         <div class="cities">Korean Air · DPS → ICN → DFW</div>
@@ -1768,6 +1848,280 @@
     </div>
   </div>
 
+  <h2 class="section-heading" id="prep">Pre-flight checklist</h2>
+  <p class="section-sub">What to pack, download, and pick up before May 23</p>
+
+  <div class="day jp">
+    <div class="day-header">
+      <span class="day-date">Documents</span>
+    </div>
+    <div class="day-place">📄 Paperwork &amp; copies</div>
+    <div class="day-section">
+      <div class="day-section-label">Required</div>
+      <div class="day-section-items">
+        <div>Passport · valid through at least Nov 24, 2026</div>
+        <div>Printed copies of all flight + hotel confirmations (in case phone dies)</div>
+        <div>Travel insurance policy printed + saved offline</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Digital backups</div>
+      <div class="day-section-items">
+        <div>Photo of passport (both pages) saved to phone &amp; cloud</div>
+        <div>Photo of driver's license</div>
+        <div>List of credit card numbers + fraud hotlines in a secure note</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Online registrations (window-specific)</div>
+      <div class="day-section-items">
+        <div>Visit Japan Web — do May 22 or 23</div>
+        <div>Philippines eTravel — do May 25 or 26</div>
+        <div>Indonesia e-VOA — apply now (48hr+ before May 31)</div>
+        <div>Indonesia AllIndonesia card — May 28-30</div>
+        <div>Bali Tourist Levy via Love Bali — do before arrival</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day ph">
+    <div class="day-header">
+      <span class="day-date">Apps</span>
+    </div>
+    <div class="day-place">📱 Download before leaving</div>
+    <div class="day-section">
+      <div class="day-section-label">Essential</div>
+      <div class="day-section-items">
+        <div><strong>Google Maps</strong> — download Tokyo, Kyoto, Cebu, Bali, Seoul offline maps</div>
+        <div><strong>Google Translate</strong> — download JP, KO, ID, TL offline language packs</div>
+        <div><strong>Mobile Passport Control</strong> — skip the kiosk line at DFW on Jun 7</div>
+        <div><strong>Airalo</strong> (or Holafly) — eSIM for all 4 countries</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Country-specific</div>
+      <div class="day-section-items">
+        <div><strong>Japan</strong>: Visit Japan Web, Japan Travel by NAVITIME (trains), Suica via Wallet app</div>
+        <div><strong>Philippines</strong>: Grab (ride hailing), GCash (optional)</div>
+        <div><strong>Indonesia</strong>: Grab, Gojek</div>
+        <div><strong>Korea</strong>: Naver Map (Google Maps is broken in Korea), Papago (better than Google Translate for KR)</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Useful</div>
+      <div class="day-section-items">
+        <div>XE Currency (or just Google) for quick conversions</div>
+        <div>WhatsApp (everyone uses it in SE Asia)</div>
+        <div>Hotel apps: Hyatt, Marriott Bonvoy, Expedia (your bookings live here)</div>
+        <div>Airline apps: United, Cebu Pacific, AirAsia, Korean Air, Trip.com</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day id">
+    <div class="day-header">
+      <span class="day-date">Packing</span>
+    </div>
+    <div class="day-place">🎒 Pack for 4 climates</div>
+    <div class="day-section">
+      <div class="day-section-label">Clothes</div>
+      <div class="day-section-items">
+        <div>Japan (65–75°F): jeans, light layers, 1 light jacket for evenings</div>
+        <div>Philippines/Indonesia (85°F humid): linen shirts, shorts, swimwear ×2, hat</div>
+        <div>Komodo boat: 3 swimsuits, rash guard (sun + reef), modest cover-up for dragons</div>
+        <div>Bali temples: sarong + shoulder-covering shirt for Uluwatu (or rent on-site)</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Footwear</div>
+      <div class="day-section-items">
+        <div>Walking shoes (Tokyo / Kyoto — lots of miles per day)</div>
+        <div>Water shoes / aqua socks (Kawasan canyoneering, Pink Beach reef)</div>
+        <div>Flip-flops for the resort</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Gear</div>
+      <div class="day-section-items">
+        <div>Universal travel adapter (JP type A, PH type A/B, ID type C/F, KR type C/F)</div>
+        <div>10,000mAh+ power bank for long flight + boat days</div>
+        <div>Reef-safe sunscreen (Komodo enforces this)</div>
+        <div>Underwater phone case or GoPro for whale sharks + Komodo</div>
+        <div>Dry bag for the liveaboard</div>
+        <div>Earplugs + eye mask for the overnight CEB → MNL → DPS legs</div>
+        <div>Empty refillable water bottle</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Cash &amp; cards</div>
+      <div class="day-section-items">
+        <div>~$300–500 USD as a backup (in clean unmarked bills)</div>
+        <div>2 credit cards from different networks (Visa + Amex/Mastercard)</div>
+        <div>Tell card issuers about travel dates (or check no-foreign-fee status)</div>
+        <div>Withdraw local cash at airport ATMs on arrival in each country (best rates)</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Health</div>
+      <div class="day-section-items">
+        <div>Imodium / Pepto (will need it eventually)</div>
+        <div>Motion sickness meds for the Komodo boat (Dramamine, ginger pills)</div>
+        <div>Ibuprofen + acetaminophen</div>
+        <div>Band-aids, blister pads (lots of walking)</div>
+        <div>DEET/Picaridin bug spray (especially Komodo + Bali)</div>
+        <div>Sunburn relief (aloe gel)</div>
+        <div>Personal prescriptions + copy of prescription papers</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-heading" id="etiquette">Local etiquette</h2>
+  <p class="section-sub">Quick cultural cards · don't be the rude tourist</p>
+
+  <div class="day jp">
+    <div class="day-header">
+      <span class="day-date">🇯🇵 Japan</span>
+    </div>
+    <div class="day-place">Tokyo · Kyoto</div>
+    <div class="day-section">
+      <div class="day-section-label">Tipping</div>
+      <div class="day-section-items">
+        <div><strong>Don't tip.</strong> Ever. It's considered rude — they may chase you down to return it.</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Shoes</div>
+      <div class="day-section-items">
+        <div>Off when entering homes, ryokans, temples, and some restaurants (look for raised entryway)</div>
+        <div>Slippers usually provided; bathroom often has its own slippers — switch back when leaving</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Manners</div>
+      <div class="day-section-items">
+        <div>No eating/drinking while walking (except festivals)</div>
+        <div>Don't talk on the phone on trains · quiet voices in public</div>
+        <div>Bow lightly when greeting / thanking — slight nod is fine for tourists</div>
+        <div>Never stick chopsticks upright in rice (funeral symbol)</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Cash</div>
+      <div class="day-section-items">
+        <div>Cash-heavy economy · small shops &amp; restaurants often cash-only</div>
+        <div>Put cash on the tray at the register, not directly in their hand</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day ph">
+    <div class="day-header">
+      <span class="day-date">🇵🇭 Philippines</span>
+    </div>
+    <div class="day-place">Cebu · Moalboal</div>
+    <div class="day-section">
+      <div class="day-section-label">Tipping</div>
+      <div class="day-section-items">
+        <div><strong>10% standard</strong> at restaurants (check if "service charge" already added)</div>
+        <div>₱50–100 for hotel porters, taxi/Grab drivers, tour guides</div>
+        <div>Tour guide for whale sharks: ₱200–500 if they were great</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Language</div>
+      <div class="day-section-items">
+        <div>English is widely spoken — you'll be fine</div>
+        <div>"Salamat" = thank you · "Mabuhay" = welcome / cheers</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Photo etiquette</div>
+      <div class="day-section-items">
+        <div>Ask before photographing locals — they're generally friendly but courtesy matters</div>
+        <div>Whale sharks: NO flash, NO touching, no sunscreen before swim</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Water</div>
+      <div class="day-section-items">
+        <div>Don't drink tap water · use bottled (cheap, everywhere)</div>
+        <div>Brush teeth with bottled if you have a sensitive stomach</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day id">
+    <div class="day-header">
+      <span class="day-date">🇮🇩 Indonesia</span>
+    </div>
+    <div class="day-place">Komodo · Bali</div>
+    <div class="day-section">
+      <div class="day-section-label">Tipping</div>
+      <div class="day-section-items">
+        <div><strong>Round up</strong> at restaurants if no service charge (most have 10% already added)</div>
+        <div>IDR 10,000–20,000 (~$0.70–1.40) for porters, drivers</div>
+        <div>Komodo boat crew: $20–40/day for whole crew, given to the captain</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Temples</div>
+      <div class="day-section-items">
+        <div><strong>Sarong required</strong> · usually provided/rented on-site</div>
+        <div>Shoulders covered · no shorts above the knee</div>
+        <div>Don't enter if you're menstruating (Balinese Hindu rule — they take it seriously at Uluwatu)</div>
+        <div>Don't point your feet at the deity / altar</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Right hand only</div>
+      <div class="day-section-items">
+        <div>Eat, give, receive with your <strong>right hand</strong> only (left is "unclean")</div>
+        <div>Especially at markets and with locals</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Komodo dragons</div>
+      <div class="day-section-items">
+        <div>Stay close to your ranger · they carry a forked stick for a reason</div>
+        <div>Don't run · their bite is venomous and they're surprisingly fast</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day tr">
+    <div class="day-header">
+      <span class="day-date">🇰🇷 South Korea</span>
+    </div>
+    <div class="day-place">Seoul layover</div>
+    <div class="day-section">
+      <div class="day-section-label">Tipping</div>
+      <div class="day-section-items">
+        <div><strong>No tipping.</strong> Not expected anywhere — restaurants, taxis, hotels</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Two hands</div>
+      <div class="day-section-items">
+        <div>Receive cards, change, and gifts with <strong>both hands</strong> (sign of respect)</div>
+        <div>Pour drinks for others, never yourself · they'll pour for you</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Shoes</div>
+      <div class="day-section-items">
+        <div>Off when entering some traditional restaurants and hanok houses</div>
+        <div>Look for raised platforms or a row of shoes</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-section-label">Subway</div>
+      <div class="day-section-items">
+        <div>Pink "pregnant" seats and elderly priority seats — don't sit even if empty</div>
+        <div>No eating on the subway</div>
+      </div>
+    </div>
+  </div>
+
   <h2 class="section-heading" id="watch">Watch-outs</h2>
   <p class="section-sub">Pre-flagged risks · plan around these</p>
 
@@ -1836,6 +2190,55 @@
   </div>
 
 </div>
+
+<!-- Lightbox modal -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-close" onclick="closeLightbox(event)">×</div>
+  <img id="lightbox-img" src="" alt="" style="display:none">
+  <div id="lightbox-missing" class="lightbox-missing" style="display:none">
+    <p>📎 Screenshot not yet saved</p>
+    <p style="font-size: 14px; margin-top: 12px; opacity: 0.8;">Save the original confirmation as:<br>
+    <code id="lightbox-filename"></code><br>
+    inside <code>images/bookings/</code> and refresh.</p>
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+document.querySelectorAll('.flight-row[data-img]').forEach(row => {
+  row.addEventListener('click', () => openLightbox(row.dataset.img, row.dataset.caption));
+});
+function openLightbox(filename, caption) {
+  var lb = document.getElementById('lightbox');
+  var img = document.getElementById('lightbox-img');
+  var missing = document.getElementById('lightbox-missing');
+  var captionEl = document.getElementById('lightbox-caption');
+  var src = 'images/bookings/' + filename;
+  // Test if image exists
+  var testImg = new Image();
+  testImg.onload = function() {
+    img.src = src;
+    img.style.display = '';
+    missing.style.display = 'none';
+  };
+  testImg.onerror = function() {
+    img.style.display = 'none';
+    document.getElementById('lightbox-filename').textContent = filename;
+    missing.style.display = '';
+  };
+  testImg.src = src;
+  captionEl.textContent = caption || '';
+  lb.classList.add('open');
+}
+function closeLightbox(e) {
+  if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+});
+</script>
 
 </body>
 </html>
